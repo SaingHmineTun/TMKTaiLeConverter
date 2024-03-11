@@ -48,9 +48,9 @@ public class AboutUsActivity extends AppCompatActivity implements AdapterView.On
             intent.setType("message/rfc822");
             startActivity(Intent.createChooser(intent, "Choose an Email client :"));
         } else if (i == 2) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SaingHmineTun/TMKFontConverter")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/SaingHmineTun/TMKTaiLeConverter")));
         } else if (i == 3) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=it.saimao.tmkfontconverter")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=it.saimao.tmktaileconverter")));
         }
     }
 }
