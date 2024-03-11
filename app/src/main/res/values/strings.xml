@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Tai Nuea Converter</string>
+    <string name="app_name">TMK Tai Le Converter</string>
+    <string name="tai_le">ᥘᥤᥐᥲᥖᥭᥰ</string>
+    <string name="shan">လိၵ်ႈတႆး</string>
+    <string name="tai_le_to_shan">ᥖᥭᥰ - တႆး</string>
+    <string name="shan_to_tai_le">တႆး - ᥖᥭᥰ</string>
+    <string name="about">About</string>
+    <string name="we_are_tmk_group">We are TMK Group</string>
 </resources>

@@ -1,4 +1,4 @@
-package it.saimao.tainueaconverter;
+package it.saimao.tmktaileconverter;
 
 import org.junit.Test;
 

@@ -4,59 +4,185 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    android:background="@color/md_theme_dark_onPrimaryContainer"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:paddingBottom="10dp"
+    android:weightSum="1"
+    tools:context=".activities.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:gravity="center_vertical"
+            android:text="@string/app_name"
+            android:textColor="@color/md_theme_dark_onTertiary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/divider"
+            app:layout_constraintEnd_toStartOf="@id/aboutUs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/aboutUs"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/about"
+            android:src="@drawable/about"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/md_theme_dark_background"
+            app:layout_constraintTop_toBottomOf="@id/aboutUs" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <RadioGroup
-        android:id="@+id/rgMethod"
+        android:id="@+id/rgroup"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:weightSum="1"
-        android:layout_weight="0.07"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="1">
+
         <RadioButton
-            android:id="@+id/rbS2T"
-            android:text="တႆး >> ᥖᥭᥰ"
+            android:id="@+id/rbSHN2TDD"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5" />
+            android:layout_height="48dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:checked="true"
+            android:gravity="center"
+            android:text="@string/shan_to_tai_le" />
+
         <RadioButton
-            android:id="@+id/rbT2S"
-            android:text="ᥖᥭᥰ >> တႆး"
+            android:id="@+id/rbTDD2SHN"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"/>
+            android:layout_height="48dp"
+            android:layout_marginStart="5dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/radio_flat_selector"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="@string/tai_le_to_shan" />
     </RadioGroup>
 
-
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
+        android:id="@+id/etLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.43">
+        android:layout_height="match_parent"
+        android:layout_weight="0.5">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edInputLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/etIn" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_gravity="top"
+            android:hint="@string/shan"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:boxStrokeWidth="1dp">
 
-    <Button
-        android:id="@+id/btConvert"
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:minLines="2" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.07"
-        android:text="Convert" />
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
-    <com.google.android.material.textfield.TextInputLayout
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btConvert"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btn_ripple"
+            android:padding="10dp"
+            android:src="@drawable/convert" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btBreak"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btn_ripple"
+            android:longClickable="true"
+            android:padding="10dp"
+            android:src="@drawable/fix" />
+
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btCopy"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btn_ripple"
+            android:longClickable="true"
+            android:padding="10dp"
+            android:src="@drawable/copy" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btClear"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/btn_ripple"
+            android:padding="10dp"
+            android:src="@drawable/delete" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/etLayout2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.43">
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:gravity="top">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edOutputLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:editable="false"
-            android:id="@+id/etOut"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/tai_le"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:boxStrokeWidth="1dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edOutput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:editable="false"
+                android:focusable="false"
+                android:gravity="top"
+                android:minLines="2" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 </LinearLayout>
