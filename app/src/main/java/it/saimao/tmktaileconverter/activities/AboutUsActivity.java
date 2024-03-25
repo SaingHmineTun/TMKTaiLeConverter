@@ -4,35 +4,26 @@ package it.saimao.tmktaileconverter.activities;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import it.saimao.tmktaileconverter.R;
-import it.saimao.tmktaileconverter.adapters.MaoAdapter;
+import it.saimao.tmktaileconverter.databinding.ActivityAboutUsBinding;
 
 
-public class AboutUsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
-
-
-    private final String[] stringsAsk = {"E-mail:", "Facebook:", "Github:", "Rate this app on Play Store"};
-    private final String[] stringsValue = {"tmk.muse@gmail.com", "ထုင့်မၢဝ်းၶမ်း", "Get source code", ""};
-    private final int[] icons = {R.drawable.ic_gmail, R.drawable.ic_facebook, R.drawable.ic_github, R.drawable.ic_playstore};
+public class AboutUsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
-        ListView simpleListView = findViewById(R.id.simpleListView);
-        MaoAdapter adapter = new MaoAdapter(getBaseContext(), stringsAsk, stringsValue, icons);
-        simpleListView.setOnItemClickListener(this);
-        simpleListView.setAdapter(adapter);
+        it.saimao.tmktaileconverter.databinding.ActivityAboutUsBinding binding = ActivityAboutUsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        binding.lyEmail.setOnClickListener(v -> onItemClick(0));
+        binding.lyFacebook.setOnClickListener(v -> onItemClick(1));
+        binding.lyGithub.setOnClickListener(v -> onItemClick(2));
+        binding.lyPlayStore.setOnClickListener(v -> onItemClick(3));
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    public void onItemClick(int i) {
         Intent intent;
         if (i == 1) {
             try {

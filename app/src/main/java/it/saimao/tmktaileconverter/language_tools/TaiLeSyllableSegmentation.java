@@ -18,8 +18,7 @@ public class TaiLeSyllableSegmentation {
         if (text == null) {
             throw new NullPointerException();
         }
-        String[] outputs = text.replaceAll(BREAK_PATTERN, "\uD835\uDD4A$1").split("\uD835\uDD4A");
-        return outputs;
+        return text.replaceAll(BREAK_PATTERN, "\uD835\uDD4A$1").split("\uD835\uDD4A");
     }
 
     public static synchronized String segmentAsStringWithDelimiter(String text, String delimiter)  {

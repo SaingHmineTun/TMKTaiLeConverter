@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_theme_dark_onPrimaryContainer"
+    android:background="?colorPrimaryContainer"
     android:orientation="vertical"
     android:paddingBottom="10dp"
     android:weightSum="1"
@@ -20,7 +20,7 @@
             android:layout_marginStart="20dp"
             android:gravity="center_vertical"
             android:text="@string/app_name"
-            android:textColor="@color/md_theme_dark_onTertiary"
+            android:textColor="?colorOnPrimaryContainer"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/divider"
@@ -46,7 +46,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="5dp"
-            android:background="@color/md_theme_dark_background"
+            android:background="?colorOnBackground"
             app:layout_constraintTop_toBottomOf="@id/aboutUs" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -61,6 +61,7 @@
         android:weightSum="1">
 
         <RadioButton
+            android:textColor="?colorOnPrimary"
             android:id="@+id/rbSHN2TDD"
             android:layout_width="0dp"
             android:layout_height="48dp"
@@ -73,6 +74,7 @@
             android:text="@string/shan_to_tai_le" />
 
         <RadioButton
+            android:textColor="?colorOnPrimary"
             android:id="@+id/rbTDD2SHN"
             android:layout_width="0dp"
             android:layout_height="48dp"
@@ -153,7 +155,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="5dp"
-            android:background="@drawable/btn_ripple"
+            android:background="@drawable/btn_clear"
             android:padding="10dp"
             android:src="@drawable/delete" />
 

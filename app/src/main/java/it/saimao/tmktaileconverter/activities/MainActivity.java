@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import it.saimao.tmktaileconverter.R;
 import it.saimao.tmktaileconverter.language_tools.ShanRuleBasedSyllableSegmentation;
 import it.saimao.tmktaileconverter.language_tools.TaiLeConverter;
+import it.saimao.tmktaileconverter.language_tools.TaiLeSyllableBreaker;
 import it.saimao.tmktaileconverter.language_tools.TaiLeSyllableSegmentation;
 import it.saimao.tmktaileconverter.databinding.ActivityMainBinding;
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         binding.btCopy.setOnClickListener(this::copy);
         binding.btCopy.setOnLongClickListener(this::copyBoth);
         binding.btBreak.setOnClickListener(this::sysBreak);
+        binding.btBreak.setOnLongClickListener(this::sysBreak2);
         binding.aboutUs.setOnClickListener(this::goToAboutUs);
         binding.rgroup.setOnCheckedChangeListener(this);
     }
@@ -63,8 +65,16 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             binding.edOutput.setText(ShanRuleBasedSyllableSegmentation.segment(binding.edInput.getText().toString()).trim());
         } else {
             // TAI LE SYLLABLE BREAK
-            binding.edOutput.setText(TaiLeSyllableSegmentation.segmentAsString(binding.edInput.getText().toString()).trim());
+            binding.edOutput.setText(TaiLeSyllableBreaker.syllable_break(binding.edInput.getText().toString()));
         }
+    }
+
+    private boolean sysBreak2(View view) {
+        if (binding.rbTDD2SHN.isChecked()) {
+            binding.edOutput.setText(TaiLeSyllableSegmentation.segmentAsString(binding.edInput.getText().toString()).trim());
+            return true;
+        }
+        return false;
     }
 
     public void copy(View view) {
